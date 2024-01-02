@@ -15,6 +15,10 @@ export const cloneDeep = <T>(obj: T): T => clone(obj);
  */
 export const isPlainObject = (val): val is Record<string, unknown> => isObject(val);
 
+/**
+ * A representation of a JSON friendly object.
+ * It can be stringified in the JSON format without losing data.
+ */
 export type RecursiveToJSON<T> = T extends Primitive
   ? T
   : T extends { toJSON: () => infer U }
