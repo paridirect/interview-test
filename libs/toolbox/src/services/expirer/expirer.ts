@@ -1,4 +1,4 @@
-import { cloneDeep } from '../utils';
+import { cloneDeep } from '../../utils';
 
 /**
  * A class that holds a value for a certain amount of time before clearing it.

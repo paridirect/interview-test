@@ -1,5 +1,5 @@
 import { cloneDeep as clone, merge, isPlainObject as isObject } from 'lodash-es';
-import { Primitive } from '../../types';
+import { type Primitive } from '../types';
 
 /**
  * Deep clone an object. This function will not mutate the object.
