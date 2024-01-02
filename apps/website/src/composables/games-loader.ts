@@ -1,5 +1,6 @@
-import { inject, provide, ref, type Ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import type { GameProps } from '../types';
+import { provideSingleContext } from '../utils/single-context-provider';
 
 export interface GamesLoader {
   games: Ref<GameProps[]>;
@@ -7,23 +8,19 @@ export interface GamesLoader {
   loadGames: () => Promise<void>;
 }
 
-export const useGamesLoader = () => {
-  const injected = inject<GamesLoader>('games-loader');
-  if (injected) return injected;
+export const useGamesLoader = () =>
+  provideSingleContext<GamesLoader>('games-loader', () => {
+    const loadGames = async () => {
+      // const games = await fetch('/api/games').then((res) => res.json());
+      // composable.games.value = games;
+      composable.loading.value = false;
+    };
 
-  const loadGames = async () => {
-    // const games = await fetch('/api/games').then((res) => res.json());
-    // composable.games.value = games;
-    composable.loading.value = false;
-  };
+    const composable = {
+      games: ref([{ name: 'test', description: 'Some game description' }]),
+      loading: ref(true),
+      loadGames,
+    };
 
-  const composable = {
-    games: ref([{ name: 'test', description: 'Some game description' }]),
-    loading: ref(true),
-    loadGames,
-  };
-
-  provide<GamesLoader>('games-loader', composable);
-
-  return composable;
-};
+    return composable;
+  });
