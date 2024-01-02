@@ -23,9 +23,9 @@ describe('LoggerFactory', () => {
     enrichedLogger.info('test info message');
     enrichedLogger.warn('test warn message');
     enrichedLogger.error('test error message');
-    enrichedLogger.debug('test debug message', {});
+    enrichedLogger.debug('test debug message', { toJSON: () => {} });
 
-    expect(logSpy).toHaveBeenCalledWith('test log message', addedContext);
+    expect(logSpy).toHaveBeenCalledWith('test log message', addedContext, undefined);
     expect(debugSpy).toHaveBeenCalledWith('test debug message', addedContext);
     expect(infoSpy).toHaveBeenCalledWith('test info message', addedContext);
     expect(warnSpy).toHaveBeenCalledWith('test warn message', addedContext);

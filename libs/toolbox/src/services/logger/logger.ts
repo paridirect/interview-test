@@ -62,9 +62,8 @@ export abstract class Logger<BaseType extends Record<string, any> = Record<strin
   }
 }
 
-const handleSpread = <T extends Record<string, any>>(context: T | undefined): T => {
-  if (!context) return {} as T;
-  if ('toJSON' in context) return context['toJSON']();
+const handleSpread = <T extends Record<string, any>>(context: T | undefined): T | undefined => {
+  if (context && 'toJSON' in context) return context['toJSON']();
   return context;
 };
 
