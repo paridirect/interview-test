@@ -7,7 +7,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production';
   return {
-    cacheDir: '../../node_modules/.vite/customer-api',
+    cacheDir: '../../node_modules/.vite/website-bff',
 
     plugins: [nxViteTsPaths()],
 

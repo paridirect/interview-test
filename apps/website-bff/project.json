@@ -1,7 +1,7 @@
 {
-  "name": "customer-api",
+  "name": "website-bff",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/customer-api/src",
+  "sourceRoot": "apps/website-bff/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/customer-api",
+        "outputPath": "dist/apps/website-bff",
         "skipTypeCheck": true
       },
       "configurations": {
@@ -31,7 +31,7 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/customer-api/**/*.ts"]
+        "lintFilePatterns": ["apps/website-bff/**/*.ts"]
       }
     },
     "test": {
@@ -39,7 +39,7 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/customer-api"
+        "reportsDirectory": "../../coverage/apps/website-bff"
       }
     },
     "build.pulumi": {

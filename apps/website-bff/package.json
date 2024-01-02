@@ -1,5 +1,5 @@
 {
-  "name": "@necapay/customer-api",
+  "name": "@necapay/website-bff",
   "version": "0.0.1",
   "scripts": {
     "dev": "tsx watch ./src/node.ts",
