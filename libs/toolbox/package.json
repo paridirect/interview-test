@@ -7,6 +7,8 @@
     "./test": "./test/index.js"
   },
   "devDependencies": {
-    "lodash-es": "4.17.21"
+    "lodash-es": "4.17.21",
+    "uncrypto": "0.1.3",
+    "uuidv7": "0.6.3"
   }
 }
