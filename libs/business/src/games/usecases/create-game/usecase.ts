@@ -1,4 +1,4 @@
-import { type UseCase, createSortableUid, ErrorCause } from '@paridirect/toolbox';
+import { type UseCase, createRandomUid, ErrorCause } from '@paridirect/toolbox';
 
 import type { CreateGameUseCaseInput, CreateGameUseCaseOutput } from './types';
 import { type GameRepository } from '../../repositories';
@@ -13,7 +13,7 @@ export class CreateGameUseCase implements UseCase {
 
     const transactionAgreement: GameProps = {
       ...input,
-      gameId: createSortableUid(),
+      gameId: createRandomUid(),
       createdAt: new Date(),
     };
 
