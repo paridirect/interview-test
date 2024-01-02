@@ -24,7 +24,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "paths": {
-      "@paridirect/business": ["libs/business-core/src/index.ts"],
+      "@paridirect/business": ["libs/business/src/index.ts"],
       "@paridirect/toolbox": ["libs/toolbox/src/index.ts"],
       "@paridirect/toolbox/test": ["libs/toolbox/test/index.ts"]
     }

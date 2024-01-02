@@ -5,7 +5,7 @@ import * as path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/business-core',
+  cacheDir: '../../node_modules/.vite/business',
 
   plugins: [
     nxViteTsPaths(),
@@ -32,7 +32,7 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: 'business-core',
+      name: 'business',
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
@@ -58,7 +58,7 @@ export default defineConfig({
       include: ['src/**/**'],
       extension: ['.js', '.ts'],
       reporter: ['text'],
-      reportsDirectory: '../../coverage/libs/business-core',
+      reportsDirectory: '../../coverage/libs/business',
     },
     server: {
       deps: {

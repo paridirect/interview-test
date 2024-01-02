@@ -1,14 +1,14 @@
 {
-  "name": "business-core",
+  "name": "business",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/business-core/src",
+  "sourceRoot": "libs/business/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/business-core"
+        "outputPath": "dist/libs/business"
       }
     },
     "test": {
@@ -16,17 +16,14 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/business-core"
+        "reportsDirectory": "../../coverage/libs/business"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/business-core/**/*.ts",
-          "libs/business-core/package.json"
-        ]
+        "lintFilePatterns": ["libs/business/**/*.ts", "libs/business/package.json"]
       }
     }
   },
