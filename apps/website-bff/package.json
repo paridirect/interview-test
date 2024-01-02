@@ -1,0 +1,9 @@
+{
+  "name": "@necapay/customer-api",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "tsx watch ./src/node.ts",
+    "preview": "tsx ./scripts/preview.ts",
+    "deploy": "tsx ./scripts/deploy.ts"
+  }
+}
