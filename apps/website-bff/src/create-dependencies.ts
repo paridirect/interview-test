@@ -14,6 +14,7 @@ export const createDependencies = (env: AppEnv): Dependencies => {
 
   return {
     logger,
+    gameRepo,
     createGame,
   };
 };
