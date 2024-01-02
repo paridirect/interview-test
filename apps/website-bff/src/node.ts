@@ -13,7 +13,7 @@ serve(
   {
     fetch: app.fetch,
     hostname: '127.0.0.1',
-    port: 3202,
+    port: 3000,
   },
   (ls) => {
     console.log(`Listening on http://${ls.address}:${ls.port}`);
