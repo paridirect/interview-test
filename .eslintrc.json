@@ -12,7 +12,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": ["@necapay/toolbox/test"],
+            "allow": ["@paridirect/toolbox/test"],
             "depConstraints": [
               {
                 "sourceTag": "*",

@@ -1,4 +1,4 @@
-import { clone } from '../../utils/object';
+import { cloneDeep } from '../utils';
 
 /**
  * A class that holds a value for a certain amount of time before clearing it.
@@ -34,7 +34,7 @@ export class Expirer<T = any> {
       this.clear();
       return this.defaultValue;
     }
-    return clone(this.currentValue ?? this.defaultValue);
+    return cloneDeep(this.currentValue ?? this.defaultValue);
   }
 
   set(value: T) {

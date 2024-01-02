@@ -1,11 +1,11 @@
+import { showRoutes } from 'hono/dev';
 import { serve } from '@hono/node-server';
-import { Hono } from 'hono';
+import { createDependencies } from './create-dependencies';
+import { createApp } from './create-app';
 
-const app = new Hono();
-
-app.get('/', (c) => {
-  return c.json({ message: 'Hello World!' });
-});
+const deps = createDependencies(process.env);
+const app = createApp(deps);
+showRoutes(app);
 
 serve(
   {
