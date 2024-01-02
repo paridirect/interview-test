@@ -1,3 +1,4 @@
+import { CreateGameUseCase, GameInMemoryRepository } from '@paridirect/business';
 import { LoggerFactory } from '@paridirect/toolbox';
 
 /**
@@ -8,7 +9,11 @@ export const createDependencies = (env: AppEnv): Dependencies => {
   const appName = env.APP_NAME;
   const logger = LoggerFactory.create({ appName });
 
+  const gameRepo = new GameInMemoryRepository();
+  const createGame = new CreateGameUseCase(gameRepo);
+
   return {
     logger,
+    createGame,
   };
 };

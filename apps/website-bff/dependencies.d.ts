@@ -1,4 +1,5 @@
 import type { Logger } from '@paridirect/toolbox';
+import type { CreateGameUseCase } from '@paridirect/business';
 
 declare global {
   /**
@@ -7,6 +8,7 @@ declare global {
   interface Dependencies {
     logger: Logger;
     // use cases
+    createGame: CreateGameUseCase;
   }
 }
 
