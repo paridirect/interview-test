@@ -1,4 +1,4 @@
-import { createRandomUid, randomDate, randomWord, randomInt } from '@paridirect/toolbox';
+import { createRandomUid, randomDate, randomWord, randomInt, randomSentence } from '@paridirect/toolbox';
 import { type GameProps } from './game.props';
 import { type GameRepository } from '../repositories';
 
@@ -15,6 +15,7 @@ export const generateGame = (): GameProps => {
     providerId: createRandomUid(),
     gameId: createRandomUid(),
     name: randomWord(),
+    description: randomSentence(),
     createdAt,
   };
 };
