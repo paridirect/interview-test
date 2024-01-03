@@ -6,13 +6,13 @@ import { type GameRepository, type GameGetManyOptions, type GameGetManyOutput } 
 export class GameInMemoryRepository implements GameRepository {
   private store: Map<string, GameProps[]> = new Map();
 
-  async getMany({ provider, cursor, limit, order }: GameGetManyOptions): Promise<GameGetManyOutput> {
-    let items = this.store.get(provider) ?? [];
+  async getMany({ providerId, cursor, limit, order }: GameGetManyOptions): Promise<GameGetManyOutput> {
+    let items = providerId ? this.store.get(providerId) ?? [] : Array.from(this.store.values()).flat();
 
     if (cursor) {
       const cursorIndex = items.findIndex((v) => v.gameId === cursor);
       if (cursorIndex !== -1) {
-        items = items.slice(cursorIndex + 1);
+        items = items.slice(cursorIndex);
       }
     }
 
@@ -32,7 +32,7 @@ export class GameInMemoryRepository implements GameRepository {
 
     await sleep(5000);
 
-    return { items: items.map(cloneDeep), cursor: items[items.length - 1]?.gameId ?? null };
+    return { items: items.map(cloneDeep), cursor: items[items.length]?.gameId ?? null };
   }
 
   async create(entity: GameProps): Promise<void> {
