@@ -11,8 +11,9 @@ export interface GamesLoader {
 export const useGamesLoader = () =>
   provideSingleContext<GamesLoader>('games-loader', () => {
     const loadGames = async () => {
-      // const games = await fetch('/api/games').then((res) => res.json());
-      // composable.games.value = games;
+      const response = await fetch('http://127.0.0.1:3000/api/games');
+      const json = await response.json();
+      composable.games.value = json.items;
       composable.loading.value = false;
     };
 

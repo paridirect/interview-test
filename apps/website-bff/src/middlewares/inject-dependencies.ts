@@ -1,8 +1,8 @@
-import { createMiddleware } from 'hono/factory';
+import { createMiddleware } from '../hono-utils';
 
-export const injectDependencies = <T extends Record<string, any>>(deps: T) =>
+export const injectDependencies = (deps: Dependencies) =>
   createMiddleware(async (c, next) => {
-    c.set('deps', deps);
+    c.set('dep', deps);
 
     await next();
   });
