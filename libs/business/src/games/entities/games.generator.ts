@@ -14,11 +14,13 @@ export const generateGame = (): GameProps => {
   return {
     providerId: createRandomUid(),
     gameId: createRandomUid(),
-    name: randomWord(),
+    name: capitalize(randomWord()),
     description: randomSentence(),
     createdAt,
   };
 };
+
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
 /**
  * Generate an array of game properties.
