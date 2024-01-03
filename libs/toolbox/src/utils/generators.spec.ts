@@ -1,4 +1,4 @@
-import { randomWord, randomInt, randomDate } from './generators';
+import { randomWord, randomInt, randomDate, randomSentence } from './generators';
 
 describe.each(new Array(10).fill(undefined))('Random Generators', () => {
   it('randomFullName generates a string', () => {
@@ -7,12 +7,18 @@ describe.each(new Array(10).fill(undefined))('Random Generators', () => {
     expect(name).not.toBe('');
   });
 
-  it('randomFloat generates a float within range', () => {
+  it('randomInt generates a float within range', () => {
     const options = { min: 1, max: 5, precision: 2 };
     const num = randomInt(options);
     expect(typeof num).toBe('number');
     expect(num).toBeGreaterThanOrEqual(options.min);
     expect(num).toBeLessThanOrEqual(options.max);
+  });
+
+  it('randomSentence generates a string', () => {
+    const sentence = randomSentence();
+    expect(typeof sentence).toBe('string');
+    expect(sentence).not.toBe('');
   });
 
   it('randomDate generates a date within range', () => {
