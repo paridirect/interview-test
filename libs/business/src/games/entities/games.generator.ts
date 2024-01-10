@@ -1,6 +1,7 @@
-import { createRandomUid, randomDate, randomWord, randomInt, randomSentence } from '@paridirect/toolbox';
+import { createRandomUid, randomDate, randomWord, randomInt, randomSentence, oneOf } from '@paridirect/toolbox';
 import { type GameProps } from './game.props';
 import { type GameRepository } from '../repositories';
+import { existingCategories } from './categories';
 
 /**
  * Generate a game properties.
@@ -16,6 +17,7 @@ export const generateGame = (): GameProps => {
     gameId: createRandomUid(),
     name: capitalize(randomWord()),
     description: randomSentence(),
+    category: oneOf(Array.from(existingCategories)),
     createdAt,
   };
 };
