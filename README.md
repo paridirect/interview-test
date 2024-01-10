@@ -6,6 +6,8 @@ It is built using [Nx](https://nx.dev) as monorepo manager and [PnPm](https://pn
 
 This project follows Clean Architecture and SOLID principles.
 
+Take time to read each project README.md file to get full project context.
+
 ## Structure
 
 The monorepo is structured as follows:
