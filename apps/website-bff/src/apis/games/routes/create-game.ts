@@ -5,6 +5,8 @@ import { defineRoute } from '../../../hono-utils';
 const bodySchema = z.object({
   providerId: z.string(),
   name: z.string(),
+  description: z.string(),
+  category: z.string(),
 });
 
 export const setRouteCreateAccount = defineRoute((rest) =>
