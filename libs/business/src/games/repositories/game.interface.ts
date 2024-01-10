@@ -8,6 +8,7 @@ export interface GameRepository {
 
 export interface GameGetManyOptions {
   providerId?: string;
+  category?: string;
   limit?: number;
   order?: GetManyOrder;
   cursor?: string | null;

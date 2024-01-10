@@ -6,7 +6,7 @@ import { type GameRepository, type GameGetManyOptions, type GameGetManyOutput } 
 export class GameInMemoryRepository implements GameRepository {
   private store: Map<string, GameProps[]> = new Map();
 
-  async getMany({ providerId, cursor, limit, order }: GameGetManyOptions): Promise<GameGetManyOutput> {
+  async getMany({ providerId, category, cursor, limit, order }: GameGetManyOptions): Promise<GameGetManyOutput> {
     let items = providerId ? this.store.get(providerId) ?? [] : Array.from(this.store.values()).flat();
 
     if (cursor) {
@@ -24,6 +24,10 @@ export class GameInMemoryRepository implements GameRepository {
           return b.createdAt.getTime() - a.createdAt.getTime();
         }
       });
+    }
+
+    if (category !== undefined) {
+      items = items.filter((v) => v?.category === category);
     }
 
     if (limit !== undefined) {
